@@ -10,7 +10,7 @@ Implementation of highly accurate sunrise and sunset calculations, with preparat
 
 # Reusability in another projects
 
-[CMake compatible (CPM.cmake, FetchContent, or add_subdirectory).](https://github.com/tomasmark79/DotNameCpp?tab=readme-ov-file#reusability-in-another-projects)
+[CMake compatible (CPM.cmake, FetchContent, or add_subdirectory).](https://github.com/tomasmark79/DotNameCppFree?tab=readme-ov-file#reusability-in-another-projects)
 
 ## Example
 ```bash
