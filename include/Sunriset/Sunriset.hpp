@@ -1,27 +1,27 @@
 // MIT License
 // Copyright (c) 2024-2025 Tomáš Mark
 
-#ifndef __SUNRISETLIB_HPP
-#define __SUNRISETLIB_HPP
+#ifndef __SUNRISET_HPP
+#define __SUNRISET_HPP
 
 #include <filesystem>
 #include <string>
-#include <sunrisetLib/version.h>
+#include <Sunriset/version.h>
 
 // Public API
 
 namespace dotname {
 
-  class sunrisetLib {
+  class Sunriset {
 
-    const std::string libName = std::string ("sunrisetLib v.") + SUNRISETLIB_VERSION;
+    const std::string libName = std::string ("Sunriset v.") + SUNRISET_VERSION;
     std::filesystem::path assetsPath_;
 
   public:
-    sunrisetLib ();
-    sunrisetLib (const std::filesystem::path& assetsPath);
-    sunrisetLib (int year, int month, int day, double lon, double lat);
-    ~sunrisetLib ();
+    Sunriset ();
+    Sunriset (const std::filesystem::path& assetsPath);
+    Sunriset (int year, int month, int day, double lon, double lat);
+    ~Sunriset ();
 
     const std::filesystem::path getAssetsPath () const {
       return assetsPath_;
@@ -35,4 +35,4 @@ namespace dotname {
 
 } // namespace dotname
 
-#endif // __SUNRISETLIB_HPP
+#endif // __SUNRISET_HPP

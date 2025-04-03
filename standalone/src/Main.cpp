@@ -3,7 +3,7 @@
 
 #include "Logger/Logger.hpp"
 #include "Utils/Utils.hpp"
-#include "sunrisetLib/sunrisetLib.hpp"
+#include "Sunriset/Sunriset.hpp"
 
 #include <cxxopts.hpp>
 #include <filesystem>
@@ -14,7 +14,7 @@
 #include <vector>
 
 namespace Config {
-  constexpr char standaloneName[] = "Sunriset";
+  constexpr char standaloneName[] = "SunrisetApp";
   const std::filesystem::path executablePath = Utils::FSManager::getExecutePath ();
   constexpr std::string_view utilsAssetPath = UTILS_ASSET_PATH;
   constexpr std::string_view utilsFirstAssetFile = UTILS_FIRST_ASSET_FILE;
@@ -22,7 +22,7 @@ namespace Config {
   const std::filesystem::path assetsPathFirstFile = assetsPath / utilsFirstAssetFile;
 }
 
-std::unique_ptr<dotname::sunrisetLib> uniqueLib;
+std::unique_ptr<dotname::Sunriset> uniqueLib;
 
 int processArguments (int argc, const char* argv[]) {
   try {
@@ -59,9 +59,9 @@ int processArguments (int argc, const char* argv[]) {
     }
 
     if (!result.count ("omit")) {
-      // uniqueLib = std::make_unique<dotname::sunrisetLib> ();
-      // uniqueLib = std::make_unique<dotname::sunrisetLib> (Config::assetsPath);
-      uniqueLib = std::make_unique<dotname::sunrisetLib> (
+      // uniqueLib = std::make_unique<dotname::Sunriset> ();
+      // uniqueLib = std::make_unique<dotname::Sunriset> (Config::assetsPath);
+      uniqueLib = std::make_unique<dotname::Sunriset> (
           result["year"].as<int> (), result["month"].as<int> (), result["day"].as<int> (),
           result["longitude"].as<double> (), result["latitude"].as<double> ());
 

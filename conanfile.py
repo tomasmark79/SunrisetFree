@@ -16,7 +16,7 @@ from conan.tools.files import copy
 # ----------------------------------------- --
 
 class DotNameCppRecipe(ConanFile):
-    name = "sunrisetlib"
+    name = "sunriset"
     version = "1.0"
     settings = "os", "compiler", "build_type", "arch"
     generators = "CMakeToolchain", "CMakeDeps"
@@ -106,4 +106,4 @@ class DotNameCppRecipe(ConanFile):
     #     cmake.install()
 
     # def package_info(self):
-    #     self.cpp_info.libs = ["sunrisetlib"]
+    #     self.cpp_info.libs = ["sunriset"]

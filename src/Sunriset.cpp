@@ -3,7 +3,7 @@
 
 #include <Logger/Logger.hpp>
 #include <Utils/Utils.hpp>
-#include <sunrisetLib/sunrisetLib.hpp>
+#include <Sunriset/Sunriset.hpp>
 
 extern "C" {
 #include "Sunriset/sunriset.h"
@@ -11,7 +11,7 @@ extern "C" {
 
 namespace dotname {
 
-  sunrisetLib::sunrisetLib () {
+  Sunriset::Sunriset () {
     LOG_D << libName << " ...constructed" << std::endl;
     if (!assetsPath_.empty ()) {
       LOG_D << "Assets path: " << assetsPath_ << std::endl;
@@ -19,17 +19,17 @@ namespace dotname {
       LOG_D << "Assets path is empty" << std::endl;
     }
   }
-  sunrisetLib::sunrisetLib (const std::filesystem::path& assetsPath) : sunrisetLib () {
+  Sunriset::Sunriset (const std::filesystem::path& assetsPath) : Sunriset () {
     assetsPath_ = assetsPath;
   }
-  sunrisetLib::sunrisetLib (int year, int month, int day, double lon, double lat) : sunrisetLib () {
+  Sunriset::Sunriset (int year, int month, int day, double lon, double lat) : Sunriset () {
     showSunriseSet (year, month, day, lon, lat);
   }
-  sunrisetLib::~sunrisetLib () {
-    LOG_D_DESTRUCTOR (sunrisetLib) << libName << " ...destructed" << std::endl;
+  Sunriset::~Sunriset () {
+    LOG_D_DESTRUCTOR (Sunriset) << libName << " ...destructed" << std::endl;
   }
 
-  void sunrisetLib::showSunriseSet (int year, int month, int day, double lon, double lat) {
+  void Sunriset::showSunriseSet (int year, int month, int day, double lon, double lat) {
     double rise = 0.0;
     double set = 0.0;
     sun_rise_set (year, month, day, lon, lat, &rise, &set);

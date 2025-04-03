@@ -38,7 +38,7 @@ set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 # ==============================================================================
 # Project attributes - case size will reflect resource files case size
 # ==============================================================================
-set(LIBRARY_NAME sunrisetLib)
+set(LIBRARY_NAME Sunriset)
 string(TOLOWER "${LIBRARY_NAME}" LIBRARY_NAME_LOWER)
 set(LIBRARY_NAMESPACE dotname)
 project(
