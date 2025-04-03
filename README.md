@@ -8,6 +8,10 @@
 
 Implementation of highly accurate sunrise and sunset calculations, with preparation for additional astrological computations. Ready for further extensions.
 
+# Reusability in another projects
+
+[CMake compatible (CPM.cmake, FetchContent, or add_subdirectory).](https://github.com/tomasmark79/DotNameCpp?tab=readme-ov-file#reusability-in-another-projects)
+
 ## Example
 ```bash
 ./SunrisetFree -y 2025 -m 4 -d 2 -l 49.86396819090531 -g 14.265802152828646
