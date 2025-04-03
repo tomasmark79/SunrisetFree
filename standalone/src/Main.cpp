@@ -49,13 +49,13 @@ int processArguments (int argc, const char* argv[]) {
     const auto result = options->parse (argc, argv);
 
     if (result.count ("help")) {
-      LOG_I << options->help ({ "", "Group" }) << std::endl;
+      LOG_I_STREAM << options->help ({ "", "Group" }) << std::endl;
       return 0;
     }
 
     if (result["log2file"].as<bool> ()) {
       LOG.enableFileLogging (std::string (Config::standaloneName) + ".log");
-      LOG_D << "Logging to file enabled [-2]" << std::endl;
+      LOG_D_STREAM << "Logging to file enabled [-2]" << std::endl;
     }
 
     if (!result.count ("omit")) {
@@ -66,19 +66,19 @@ int processArguments (int argc, const char* argv[]) {
           result["longitude"].as<double> (), result["latitude"].as<double> ());
 
     } else {
-      LOG_D << "Loading library omitted [-o]" << std::endl;
+      LOG_D_STREAM << "Loading library omitted [-o]" << std::endl;
     }
 
     if (!result.unmatched ().empty ()) {
       for (const auto& arg : result.unmatched ()) {
-        LOG_E << "Unrecognized option: " << arg << std::endl;
+        LOG_E_STREAM << "Unrecognized option: " << arg << std::endl;
       }
-      LOG_I << options->help () << std::endl;
+      LOG_I_STREAM << options->help () << std::endl;
       return 1;
     }
 
   } catch (const cxxopts::exceptions::exception& e) {
-    LOG_E << "error parsing options: " << e.what () << std::endl;
+    LOG_E_STREAM << "error parsing options: " << e.what () << std::endl;
     return 1;
   }
   return 0;
@@ -86,7 +86,7 @@ int processArguments (int argc, const char* argv[]) {
 
 int main (int argc, const char* argv[]) {
   LOG.noHeader (true);
-  LOG_D << "Starting " << Config::standaloneName << " ..." << std::endl;
+  LOG_D_STREAM << "Starting " << Config::standaloneName << " ..." << std::endl;
   if (processArguments (argc, argv) != 0) {
     return 1;
   }

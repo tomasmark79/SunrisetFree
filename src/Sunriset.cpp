@@ -12,11 +12,11 @@ extern "C" {
 namespace dotname {
 
   Sunriset::Sunriset () {
-    LOG_D << libName << " ...constructed" << std::endl;
+    LOG_D_STREAM << libName << " ...constructed" << std::endl;
     if (!assetsPath_.empty ()) {
-      LOG_D << "Assets path: " << assetsPath_ << std::endl;
+      LOG_D_STREAM << "Assets path: " << assetsPath_ << std::endl;
     } else {
-      LOG_D << "Assets path is empty" << std::endl;
+      LOG_D_STREAM << "Assets path is empty" << std::endl;
     }
   }
   Sunriset::Sunriset (const std::filesystem::path& assetsPath) : Sunriset () {
@@ -26,7 +26,7 @@ namespace dotname {
     showSunriseSet (year, month, day, lon, lat);
   }
   Sunriset::~Sunriset () {
-    LOG_D_DESTRUCTOR (Sunriset) << libName << " ...destructed" << std::endl;
+    LOG_D_STREAM << libName << " ...destructed" << std::endl;
   }
 
   void Sunriset::showSunriseSet (int year, int month, int day, double lon, double lat) {
@@ -39,7 +39,7 @@ namespace dotname {
     int setMinute = static_cast<int> ((set - setHour) * 60);
 
     /* parse output for required tool */
-    LOG_I << "DOTNAME " << riseHour << ":" << (riseMinute < 10 ? "0" : "") << riseMinute << " "
+    LOG_I_STREAM << "DOTNAME " << riseHour << ":" << (riseMinute < 10 ? "0" : "") << riseMinute << " "
           << setHour << ":" << (setMinute < 10 ? "0" : "") << setMinute << std::endl;
   }
 
