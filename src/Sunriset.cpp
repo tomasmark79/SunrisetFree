@@ -5,10 +5,6 @@
 #include <Utils/Utils.hpp>
 #include <Sunriset/Sunriset.hpp>
 
-extern "C" {
-#include "Sunriset/sunriset.h"
-}
-
 namespace dotname {
 
   Sunriset::Sunriset () {

@@ -8,6 +8,10 @@
 #include <string>
 #include <Sunriset/version.h>
 
+extern "C" {
+#include "Sunriset/sunriset.h"
+}
+
 // Public API
 
 namespace dotname {
@@ -31,6 +35,11 @@ namespace dotname {
     }
 
     void showSunriseSet (int year, int month, int day, double lon, double lat);
+
+    void getSunriseSet (int year, int month, int day, double lon, double lat, double& rise,
+                        double& set) {
+      sun_rise_set (year, month, day, lon, lat, &rise, &set);
+    }
   };
 
 } // namespace dotname
