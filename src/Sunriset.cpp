@@ -18,38 +18,27 @@ namespace dotname {
   Sunriset::Sunriset (const std::filesystem::path& assetsPath) : Sunriset () {
     assetsPath_ = assetsPath;
   }
+
+  std::string Sunriset::doubleTo24Time (double time) {
+    int hour = static_cast<int> (time);
+    int minute = static_cast<int> ((time - hour) * 60);
+    std::string timeString
+        = std::to_string (hour) + ":" + (minute < 10 ? "0" : "") + std::to_string (minute);
+    return timeString;
+  }
+
   Sunriset::Sunriset (int year, int month, int day, double lon, double lat) : Sunriset () {
-    showSunriset (year, month, day, lon, lat);
 
     double rise = 0.0;
     double set = 0.0;
-    getSunriset (year, month, day, lon, lat, rise, set);
-    int riseHour = static_cast<int> (rise);
-    int riseMinute = static_cast<int> ((rise - riseHour) * 60);
-    int setHour = static_cast<int> (set);
-    int setMinute = static_cast<int> ((set - setHour) * 60);
 
-    /* parse output for required tool */
-    LOG_I_STREAM << "DOTNAME " << riseHour << ":" << (riseMinute < 10 ? "0" : "") << riseMinute
-          << " " << setHour << ":" << (setMinute < 10 ? "0" : "") << setMinute << std::endl;
-    
+    getSunriset (year, month, day, lon, lat, rise, set);
+
+    LOG_I_STREAM << "Sunrise: " << doubleTo24Time (rise) << " "
+                 << "Sunset: " << doubleTo24Time (set) << std::endl;
   }
   Sunriset::~Sunriset () {
     LOG_D_STREAM << libName << " ...destructed" << std::endl;
-  }
-
-  void Sunriset::showSunriset (int year, int month, int day, double lon, double lat) {
-    double rise = 0.0;
-    double set = 0.0;
-    sun_rise_set (year, month, day, lon, lat, &rise, &set);
-    int riseHour = static_cast<int> (rise);
-    int riseMinute = static_cast<int> ((rise - riseHour) * 60);
-    int setHour = static_cast<int> (set);
-    int setMinute = static_cast<int> ((set - setHour) * 60);
-
-    /* parse output for required tool */
-    LOG_I_STREAM << "DOTNAME " << riseHour << ":" << (riseMinute < 10 ? "0" : "") << riseMinute << " "
-          << setHour << ":" << (setMinute < 10 ? "0" : "") << setMinute << std::endl;
   }
 
 } // namespace dotname

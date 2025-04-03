@@ -33,11 +33,10 @@ namespace dotname {
     void setAssetsPath (const std::filesystem::path& assetsPath) {
       assetsPath_ = assetsPath;
     }
-
-    void showSunriset (int year, int month, int day, double lon, double lat);
+    std::string doubleTo24Time (double time);
 
     void getSunriset (int year, int month, int day, double lon, double lat, double& rise,
-                        double& set) {
+                      double& set) {
       sun_rise_set (year, month, day, lon, lat, &rise, &set);
     }
   };
