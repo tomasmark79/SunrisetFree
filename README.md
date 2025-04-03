@@ -10,14 +10,16 @@ Implementation of highly accurate sunrise and sunset calculations, with preparat
 
 # Reusability in another projects
 
+This project is a library accompanied by an executable file. You can use the library in your own project.
+
 [CMake compatible (CPM.cmake, FetchContent, or add_subdirectory).](https://github.com/tomasmark79/DotNameCppFree?tab=readme-ov-file#reusability-in-another-projects)
 
-## Example
+## Standalone Example
 ```bash
 ./SunrisetFree -y 2025 -m 4 -d 2 -l 49.86396819090531 -g 14.265802152828646
 ```
 
-## Usage
+## Standalone Usage
 ```bash
 Starting SunrisetFree ...
 SunrisetFree
