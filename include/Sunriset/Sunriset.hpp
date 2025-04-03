@@ -34,9 +34,9 @@ namespace dotname {
       assetsPath_ = assetsPath;
     }
 
-    void showSunriseSet (int year, int month, int day, double lon, double lat);
+    void showSunriset (int year, int month, int day, double lon, double lat);
 
-    void getSunriseSet (int year, int month, int day, double lon, double lat, double& rise,
+    void getSunriset (int year, int month, int day, double lon, double lat, double& rise,
                         double& set) {
       sun_rise_set (year, month, day, lon, lat, &rise, &set);
     }
